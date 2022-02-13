@@ -1,0 +1,40 @@
+<ui:composition template="../templates/master.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	<ui:define name="content">
+		<div style="border-bottom: 1px solid #CCC;padding:10px">
+			<h:panelGrid columns="1" columnClasses="col-1" style="width:100%;">
+				<h:outputText value="JSF panelGroup Example" />
+			</h:panelGrid>
+		</div>
+		<div id="container">
+			<h:form id="customerForm">
+			
+				<h:messages errorClass="error" />
+			
+				<p />
+				<h:outputText value="SelectBooleanCheckbox - Ejemplo:" styleClass="title" />
+				<p />
+
+				<h:panelGrid columns="2" styleClass="table-style">
+					<h:outputLabel for="it-nombre" value="Nombre: " />
+					<h:inputText id="it-nombre" required="true" requiredMessage="Ingrese nombre." />
+
+					<h:outputLabel for="it-apellido" value="Apellido: " />
+					<h:inputText id="it-apellido" required="true" requiredMessage="Ingrese apellido." />
+				</h:panelGrid>
+
+				<h:panelGrid columns="2" styleClass="table-style" columnClasses="table-col-1,table-col-2">
+					<h:outputLabel for="cb-accept" value="Acepto los Términos y Condiciones" />
+					<h:selectBooleanCheckbox id="cb-accept" value="#{bean.accepted}" />
+				</h:panelGrid>
+				<h:panelGroup layout="block" style="text-align:center;">
+					<h:commandButton value="Registrarse" action="#{bean.register()}" />
+				</h:panelGroup>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
